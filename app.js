@@ -213,7 +213,7 @@ function initHUDClocks() {
   }
 
   function updateCountdown() {
-    const target = new Date('2026-12-12T09:00:00+05:30').getTime();
+    const target = new Date('2026-11-14T09:00:00+05:30').getTime();
     const now = new Date().getTime();
     const diff = Math.max(0, target - now);
 
@@ -535,7 +535,7 @@ function initHeroTerminal() {
 <div>&nbsp;&nbsp;phase: <span class="code-str">"Stage 01 — Problem Discovery"</span>,</div>
 <div>&nbsp;&nbsp;deliverable: <span class="code-str">"Problem Framing & Team Calibration"</span>,</div>
 <div>&nbsp;&nbsp;sessions: [<span class="code-str">"Founder Keynotes"</span>, <span class="code-str">"Starter Repos"</span>],</div>
-<div>&nbsp;&nbsp;accessCodeWindow: <span class="code-str">"Registration & Mail Dispatch: 15 Sept 2026 Onwards"</span>,</div>
+<div>&nbsp;&nbsp;accessCodeWindow: <span class="code-str">"Registration & Mail Dispatch: 20 Sept 2026 Onwards"</span>,</div>
 <div>&nbsp;&nbsp;status: <span class="code-str">"PRE-LAUNCH DISPATCH READY"</span></div>
 <div>};</div>`,
     '2': `<div><span class="code-kw">const</span> stage02_Build = {</div>
@@ -613,7 +613,7 @@ function initHeroTerminal() {
     termGenBtn.addEventListener('click', () => {
       if (typeof window.isPassReleaseActive === 'function' && !window.isPassReleaseActive()) {
         if (typeof window.flashGateNotice === 'function') window.flashGateNotice();
-        alert('Official squad registration and Builder Pass generator opens on 15 September 2026 onwards.\n\nClick "Preview / Test Mode" or "Use Demo Code" to test pass generation ahead of time.');
+        alert('Official squad registration and Builder Pass generator opens on 20 September 2026 onwards.\n\nClick "Preview / Test Mode" or "Use Demo Code" to test pass generation ahead of time.');
         return;
       }
       const code = document.getElementById('termUniqueCode')?.value.trim() || document.getElementById('termPassCode')?.value.trim() || 'VST-2026-PASS';
@@ -813,7 +813,7 @@ function initRegistrationModal() {
   function executePassGeneration() {
     if (typeof window.isPassReleaseActive === 'function' && !window.isPassReleaseActive()) {
       if (typeof window.flashGateNotice === 'function') window.flashGateNotice();
-      alert('Official squad registration and Builder Pass generator opens on 15 September 2026 onwards.\n\nClick "Unlock Demo Preview" or "Use Demo Code" to test pass generation ahead of time.');
+      alert('Official squad registration and Builder Pass generator opens on 20 September 2026 onwards.\n\nClick "Unlock Demo Preview" or "Use Demo Code" to test pass generation ahead of time.');
       return;
     }
 
@@ -1436,9 +1436,9 @@ function initThemeSwitcher() {
 }
 
 /* ==========================================================================
-   12. DATE GATING & LIVE COUNTDOWN: ACTIVATES 15 SEPT 2026 ONWARDS
+   12. DATE GATING & LIVE COUNTDOWN: ACTIVATES 20 SEPT 2026 ONWARDS
    ========================================================================== */
-const PASS_RELEASE_DATE = new Date('2026-09-15T00:00:00+05:30');
+const PASS_RELEASE_DATE = new Date('2026-09-20T00:00:00+05:30');
 
 // Allow developer / demo preview simulation
 let passPreviewMode = sessionStorage.getItem('vistaara_pass_preview') === 'true';
@@ -1523,18 +1523,18 @@ function updateDateGatingUI() {
   const termSubmitBtn = document.getElementById('termGeneratePassBtn');
 
   if (isLive) {
-    // 15 Sept 2026 onwards: fully live
+    // 20 Sept 2026 onwards: fully live
     if (modalBanner) modalBanner.className = 'pass-date-gate-banner live-active';
     if (termBanner) termBanner.className = 'pass-date-gate-banner live-active';
     if (modalPill) modalPill.className = 'gate-status-pill live';
     if (termPill) termPill.className = 'gate-status-pill live';
 
-    if (modalPillText) modalPillText.textContent = 'STATUS: REGISTRATION ACTIVE (15 SEPT 2026+)';
-    if (termPillText) termPillText.textContent = 'STATUS: REGISTRATION ACTIVE (15 SEPT 2026+)';
+    if (modalPillText) modalPillText.textContent = 'STATUS: REGISTRATION ACTIVE (20 SEPT 2026+)';
+    if (termPillText) termPillText.textContent = 'STATUS: REGISTRATION ACTIVE (20 SEPT 2026+)';
     if (modalTitle) modalTitle.textContent = 'OFFICIAL SQUAD REGISTRATION ACTIVE';
     if (termTitle) termTitle.textContent = 'OFFICIAL SQUAD REGISTRATION ACTIVE';
-    if (modalDesc) modalDesc.innerHTML = 'Official registration and verification codes dispatched on <strong>15 September 2026</strong> are active. Authenticate your code below to claim your VIP Builder Pass.';
-    if (termDesc) termDesc.innerHTML = 'Official registration and verification codes dispatched on <strong>15 September 2026</strong> are active. Enter your code below to generate your pass.';
+    if (modalDesc) modalDesc.innerHTML = 'Official registration and verification codes dispatched on <strong>20 September 2026</strong> are active. Authenticate your code below to claim your VIP Builder Pass.';
+    if (termDesc) termDesc.innerHTML = 'Official registration and verification codes dispatched on <strong>20 September 2026</strong> are active. Enter your code below to generate your pass.';
     if (modalPreviewBtn) modalPreviewBtn.style.display = 'none';
     if (termPreviewBtn) termPreviewBtn.style.display = 'none';
 
@@ -1549,15 +1549,15 @@ function updateDateGatingUI() {
     if (modalPill) modalPill.className = 'gate-status-pill preview';
     if (termPill) termPill.className = 'gate-status-pill preview';
 
-    if (modalPillText) modalPillText.textContent = 'PREVIEW MODE ACTIVE (SIMULATING 15 SEPT+)';
-    if (termPillText) termPillText.textContent = 'PREVIEW MODE ACTIVE (SIMULATING 15 SEPT+)';
+    if (modalPillText) modalPillText.textContent = 'PREVIEW MODE ACTIVE (SIMULATING 20 SEPT+)';
+    if (termPillText) termPillText.textContent = 'PREVIEW MODE ACTIVE (SIMULATING 20 SEPT+)';
     if (modalTitle) modalTitle.textContent = 'DEVELOPER PREVIEW: PASS GENERATOR UNLOCKED';
     if (termTitle) termTitle.textContent = 'DEVELOPER PREVIEW: PASS GENERATOR UNLOCKED';
-    if (modalDesc) modalDesc.innerHTML = 'Preview mode is active for testing before the official <strong>15 September 2026</strong> launch. All inputs and official pass generation are unlocked.';
-    if (termDesc) termDesc.innerHTML = 'Preview mode is active for testing before the official <strong>15 September 2026</strong> launch. Pass generation is unlocked.';
+    if (modalDesc) modalDesc.innerHTML = 'Preview mode is active for testing before the official <strong>20 September 2026</strong> launch. All inputs and official pass generation are unlocked.';
+    if (termDesc) termDesc.innerHTML = 'Preview mode is active for testing before the official <strong>20 September 2026</strong> launch. Pass generation is unlocked.';
     if (modalPreviewBtn) {
       modalPreviewBtn.style.display = 'inline-block';
-      modalPreviewBtn.textContent = 'Lock Portal (15 Sept State)';
+      modalPreviewBtn.textContent = 'Lock Portal (20 Sept State)';
     }
     if (termPreviewBtn) {
       termPreviewBtn.style.display = 'inline-block';
@@ -1569,18 +1569,18 @@ function updateDateGatingUI() {
     if (termSubmitBtn) termSubmitBtn.classList.remove('btn-locked-state');
     if (termSubmitContent) termSubmitContent.textContent = 'Generate Official Pass →';
   } else {
-    // Locked until 15 Sept 2026
+    // Locked until 20 Sept 2026
     if (modalBanner) modalBanner.className = 'pass-date-gate-banner';
     if (termBanner) termBanner.className = 'pass-date-gate-banner';
     if (modalPill) modalPill.className = 'gate-status-pill locked';
     if (termPill) termPill.className = 'gate-status-pill locked';
 
-    if (modalPillText) modalPillText.textContent = 'OPENS 15 SEPT 2026 ONWARDS';
-    if (termPillText) termPillText.textContent = 'TURNS ON 15 SEPT 2026 ONWARDS';
-    if (modalTitle) modalTitle.textContent = 'REGISTRATION & BUILDER PASS CLAIMING OPENS 15 SEPTEMBER 2026';
-    if (termTitle) termTitle.textContent = 'REGISTRATION & PASS GATEWAY OPENS 15 SEPTEMBER 2026';
-    if (modalDesc) modalDesc.innerHTML = 'As per official guidelines, squad registration and unique team verification codes open on <strong>15 September 2026</strong>. The builder pass generator officially <strong>turns on on 15 September 2026 onwards</strong>. Check your registered inbox on 15 September to obtain your code and issue your official VIP Builder Credential.';
-    if (termDesc) termDesc.innerHTML = 'Official squad registration and verification codes open on <strong>15 September 2026 onwards</strong>.';
+    if (modalPillText) modalPillText.textContent = 'OPENS 20 SEPT 2026 ONWARDS';
+    if (termPillText) termPillText.textContent = 'TURNS ON 20 SEPT 2026 ONWARDS';
+    if (modalTitle) modalTitle.textContent = 'REGISTRATION & BUILDER PASS CLAIMING OPENS 20 SEPTEMBER 2026';
+    if (termTitle) termTitle.textContent = 'REGISTRATION & PASS GATEWAY OPENS 20 SEPTEMBER 2026';
+    if (modalDesc) modalDesc.innerHTML = 'As per official guidelines, squad registration and unique team verification codes open on <strong>20 September 2026</strong>. The builder pass generator officially <strong>turns on on 20 September 2026 onwards</strong>. Check your registered inbox on 20 September to obtain your code and issue your official VIP Builder Credential.';
+    if (termDesc) termDesc.innerHTML = 'Official squad registration and verification codes open on <strong>20 September 2026 onwards</strong>.';
     if (modalPreviewBtn) {
       modalPreviewBtn.style.display = 'inline-block';
       modalPreviewBtn.textContent = 'Unlock Demo Preview';
@@ -1591,9 +1591,9 @@ function updateDateGatingUI() {
     }
 
     if (modalSubmitBtn) modalSubmitBtn.classList.add('btn-locked-state');
-    if (modalSubmitContent) modalSubmitContent.textContent = 'Locked Until 15 Sept 2026 (Preview with Demo)';
+    if (modalSubmitContent) modalSubmitContent.textContent = 'Locked Until 20 Sept 2026 (Preview with Demo)';
     if (termSubmitBtn) termSubmitBtn.classList.add('btn-locked-state');
-    if (termSubmitContent) termSubmitContent.textContent = 'Locked Until 15 Sept 2026';
+    if (termSubmitContent) termSubmitContent.textContent = 'Locked Until 20 Sept 2026';
   }
 }
 
