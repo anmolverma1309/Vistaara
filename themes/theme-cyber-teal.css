@@ -479,8 +479,8 @@ button {
 /* Proprietary Artifact 3: Live Radar HUD */
 .vst-artifact-radar {
   position: absolute;
-  bottom: 140px;
-  left: 6%;
+  bottom: 64px;
+  left: 3%;
   z-index: 10;
   background: rgba(5, 19, 22, 0.88);
   border: 2px solid var(--vst-jade);
@@ -605,21 +605,28 @@ button {
 .vst-dot-magenta { color: var(--vst-jade); }
 .vst-dot-white { color: var(--vst-mint-light); }
 
-.vst-hero-meta {
+.vst-hero-meta,
+.vst-hero-lead {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   font-family: var(--font-mono);
-  font-size: clamp(0.78rem, 1.4vw, 1.05rem);
+  font-size: clamp(0.72rem, 1.15vw, 0.92rem);
   font-weight: 800;
+  letter-spacing: 0.04em;
   color: var(--vst-mint);
-  margin-bottom: 40px;
+  max-width: 840px;
+  margin: 0 auto 36px auto;
+  line-height: 1.5;
   flex-wrap: wrap;
+  text-align: center;
 }
 
-.vst-hero-sep {
+.vst-hero-sep,
+.vst-lead-sep {
   color: var(--vst-jade);
+  font-weight: 900;
 }
 
 .vst-hero-cta-row {
@@ -1635,6 +1642,15 @@ button {
 .vst-prize-list li::before {
   content: '◆ ';
   color: var(--vst-jade);
+}
+
+.vst-prize-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #334155;
+  text-align: left;
+  margin-top: 4px;
 }
 
 .vst-prizes-footnote {
@@ -3007,4 +3023,71 @@ button {
   }
   .theme-dock-label { display: none; }
   .theme-dock-pill { padding: 4px 8px; font-size: 0.62rem; }
+}
+
+/* ==========================================================================
+   VAULT OVERLAY (BLURRED PRIZES GRAPHIC)
+   ========================================================================== */
+.vst-awards-vault-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+  border: var(--vst-border-thick);
+  background: #000000;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.9);
+}
+.vst-vault-blurred {
+  filter: blur(16px) opacity(0.3) grayscale(1);
+  pointer-events: none;
+  user-select: none;
+  margin-bottom: 0 !important;
+  padding: 12px;
+}
+.vst-vault-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  z-index: 10;
+  background: linear-gradient(135deg, rgba(10,12,8,0.7), rgba(10,12,8,0.95));
+  backdrop-filter: blur(3px);
+}
+.vst-vault-graphic {
+  color: var(--vst-chartreuse, #FFB703);
+  margin-bottom: 20px;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+.vst-vault-graphic svg {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.2));
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+.vst-vault-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0px #000000;
+}
+.vst-vault-subtitle {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  max-width: 600px;
 }
